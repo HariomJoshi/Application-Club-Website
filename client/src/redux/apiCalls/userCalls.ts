@@ -17,10 +17,15 @@ export const loginUser = async (dispatch, body) => {
   const id = toast.loading("Logging you in");
   try {
     // api call
-    const [err, res] = await to(backend.post("/user/login", body));
+    // Doing it any for now, might have to change it later to make it more strict
+    const [err, res]: any[] = await to(backend.post("/user/login", body));
     if (err) {
       toast.update(id, {
-        render: `${err.response.data.message || err.response.data || "Some error occurred please try again later"}`,
+        render: `${
+          err.response.data.message ||
+          err.response.data ||
+          "Some error occurred please try again later"
+        }`,
         type: "error",
         isLoading: false,
         autoClose: 2000,
@@ -53,8 +58,10 @@ export const signup = async (dispatch, formData) => {
   dispatch(resetAll());
   dispatch(startFetch());
   const id = toast.loading("Signing you in");
-
-  const [err, response] = await to(backend.post("/user/signup", formData));
+  // Making it any[] for now , might have to change it later
+  const [err, response]: any[] = await to(
+    backend.post("/user/signup", formData)
+  );
   if (err || ((response.status / 100) | 0) !== 2) {
     const errorMessage =
       err.response?.data?.message ||
@@ -80,7 +87,6 @@ export const signup = async (dispatch, formData) => {
     return true;
   }
 };
-
 
 export const logoutUser = async (dispatch) => {
   dispatch(startFetch());
