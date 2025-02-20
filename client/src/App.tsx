@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage.js";
 import SignupPage from "./pages/SignupPage.js";
 import LoginPage from "./pages/LoginPage.js";
 import React from "react";
+import OTPVerification from "./components/OTPVerification.js";
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const App: React.FC = () => {
         {
           path: "login",
           element: <LoginPage />,
+        },
+        {
+          path: "verify",
+          element: <OTPVerification />,
         },
       ],
     },
