@@ -1,11 +1,16 @@
 import React, { useRef } from "react";
-import AnimatedWrapper from "./AnimatedWrapper"; // Wrap with Animated Wrapper
+import AnimatedWrapper from "./AnimatedWrapper"; 
 
 const OTPVerification = () => {
   const inputRefs = useRef([]);
 
   const handleChange = (e, index) => {
-    if (e.target.value.length === 1 && index < inputRefs.current.length - 1) {
+    const { value } = e.target;
+    if (!/^[0-9]*$/.test(value)) {
+      e.target.value = ""; 
+      return;
+    }
+    if (value.length === 1 && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
     }
   };
@@ -16,13 +21,18 @@ const OTPVerification = () => {
     }
   };
 
+  const handleFocus = (index) => {
+    if (index > 0 && !inputRefs.current[index - 1].value) {
+      inputRefs.current[index - 1].focus();
+    }
+  };
+
   return (
     <div className="relative flex justify-center items-center h-screen bg-black">
-      {/* OTP Box with Animation */}
+    
       <AnimatedWrapper>  
-        <h2 className="text-xl font-semibold text-center mb-6">OTP Verification</h2>
+        <h2 className="text-xl font-semibold text-center font-poltawski  mb-6">OTP Verification</h2>
 
-        {/* OTP Inputs */}
         <div className="flex justify-center gap-3 mb-4">
           {[...Array(5)].map((_, index) => (
             <input
@@ -32,28 +42,25 @@ const OTPVerification = () => {
               ref={(el) => (inputRefs.current[index] = el)}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
+              onFocus={() => handleFocus(index)}
               className="w-10 h-10 bg-gray-800 border border-gray-600 text-center text-white rounded focus:outline-none focus:ring-2 focus:ring-AC_Green"
             />
           ))}
         </div>
 
-        {/* Resend OTP */}
         <div className="mb-4 flex justify-end">
-          <a href="#" className="text-xs text-AC_Green hover:underline">
+          <a href="#" className="text-xs text-AC_Green hover:underline font-poppins">
             Resend OTP ?
           </a>
         </div>
 
-        {/* Submit Button */}
-        <div className="flex justify-center">
-          <button className="w-32 bg-AC_Green text-black font-semibold py-1 rounded hover:bg-opacity-80 transition">
+        <div className="flex justify-center ">
+          <button className="w-32 bg-AC_Green font-poppins text-black font-semibold py-1 rounded hover:bg-opacity-80 transition">
             Submit
           </button>
         </div>
       </AnimatedWrapper>
-
-      {/* Login Button - Positioned Completely Outside */}
-      <button className="absolute top-5 right-5 w-24 bg-AC_Green text-black font-semibold py-1 rounded hover:bg-opacity-80 transition">
+      <button className="absolute font-poppins top-5 right-5 w-24 bg-AC_Green text-black font-semibold py-1 rounded hover:bg-opacity-80 transition">
         Login
       </button>
     </div>
