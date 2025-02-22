@@ -4,13 +4,13 @@ const AnimatedWrapper = ({children}) => {
     return (
         <div className="relative flex justify-center items-center">
             {/* Animated Gradient Border */}
-            <div className="relative p-[3px] rounded-xl overflow-hidden">
+            <div className="relative p-[3px] rounded-3xl overflow-hidden">
                 {/* Moving Gradient Layer */}
                 <div
                     className="absolute inset-0 bg-gradient-to-r from-AC_Orange via-AC_Green to-AC_Orange animate-border-spin"></div>
 
                 {/* Wrapped Content */}
-                <div className="relative rounded-xl text-white shadow-lg overflow-hidden">
+                <div className="relative rounded-3xl text-white shadow-lg overflow-hidden">
                     {children}
                 </div>
             </div>
