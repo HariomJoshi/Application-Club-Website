@@ -1,4 +1,4 @@
-import type {Config} from "tailwindcss";
+import type { Config } from "tailwindcss";
 import flowbite from "flowbite/plugin";
 
 const config: Config = {
@@ -7,7 +7,12 @@ const config: Config = {
         "./src/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
-        extend: {},
+        extend: {
+            gridTemplateColumns: {
+                '14': 'repeat(14, minmax(0, 1fr))',
+                '17': 'repeat(17, minmax(0, 1fr))',
+            },
+        },
         colors: {
             transparent: "transparent",
             current: "currentColor",
