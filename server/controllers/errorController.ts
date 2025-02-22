@@ -1,11 +1,13 @@
-const AppError = require("../util/appError");
+import AppError from "../util/appError";
+import {Error as MongooseError} from "mongoose";
+
 
 const handleCastErrorDB = (err) => {
     const message = `Invalid ${err.path}: ${err.value}.`;
     return new AppError(message, 400);
 };
 
-const handleValidationErrorDB = (err) => {
+const handleValidationErrorDB = (err: MongooseError.ValidationError) => {
     const errors = Object.values(err.errors).map(el => el.message);
     const message = "Invalid input data: " + errors.join(". ");
     return new AppError(message, 400);
@@ -39,7 +41,7 @@ module.exports = (err, req, res, next) => {
         err = handleValidationErrorDB(err);
     } else if (err.name === 'JsonWebTokenError') {
         err = handleJWTError(err);
-    } else if (err.name === 'TokenExpiredError'){
+    } else if (err.name === 'TokenExpiredError') {
         err = handleJWTExpiredError(err);
     }
 
