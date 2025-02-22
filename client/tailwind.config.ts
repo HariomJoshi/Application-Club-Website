@@ -7,7 +7,13 @@ const config: Config = {
         "./src/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                poltawski: ["Poltawski Nowy", "serif"],
+                poppins: ["Poppins", "sans-serif"],
+              },
+        },
+
         colors: {
             transparent: "transparent",
             current: "currentColor",
