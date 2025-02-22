@@ -7,12 +7,13 @@ import "flowbite";
 import { Provider } from "react-redux"; //redux state provider
 import { persistor, store } from "./redux/store.js"; //persistor to keep data in local storage
 import { PersistGate } from "redux-persist/integration/react"; //persistgate to implement persistor
-
+import ProfileVerificationPage from "./pages/ProfileVerificationPage.js";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        {/* <App /> */}
+        <ProfileVerificationPage />
       </PersistGate>
     </Provider>
   </React.StrictMode>
