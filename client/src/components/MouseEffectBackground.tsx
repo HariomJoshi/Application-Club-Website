@@ -1,25 +1,22 @@
 import React from 'react';
-import './gridCell.css';
 
 const MouseEffectBackground: React.FC = () => {
-  const rows = 12;
-  const columns = 20;
+    const rows = 12;
+    const columns = 20;
 
-  return (
-    <div className="absolute top-0 left-0 w-full h-full">
-      <div className="grid sm:grid-cols-7 md:grid-cols-14 xl:grid-cols-17 gap-0 w-full h-full">
-        {Array.from({ length: rows * columns }).map((_, index) => (
-          <div
-            key={index}
-            className="box"
-            style={{
-              aspectRatio: '1 / 1',
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="absolute top-0 left-0 w-full h-full">
+            <div
+                className="grid sm:grid-cols-7 md:grid-cols-[repeat(14,minmax(0,1fr))] xl:grid-cols-[repeat(17,minmax(0,1fr))] gap-0 w-full h-full">
+                {Array.from({length: rows * columns}).map((_, index) => (
+                    <div
+                        key={index}
+                        className="bg-black transition-all duration-1000 ease-out hover:bg-AC_Orange hover:transition-none aspect-square"
+                    />
+                ))}
+            </div>
+        </div>
+    );
 };
 
-export { MouseEffectBackground };
+export {MouseEffectBackground};
