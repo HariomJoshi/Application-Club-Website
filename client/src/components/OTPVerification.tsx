@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import AnimatedWrapper from "./AnimatedWrapper";
-import {MouseEffectBackground} from "./MouseEffectBackground.js";
+import {MouseEffectBackground} from "./background/MouseEffectBackground.js";
 
 const OTPVerification = () => {
     const inputRefs = useRef([]);

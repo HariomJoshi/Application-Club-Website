@@ -4,7 +4,7 @@ import passwordLogo from "../assets/SignUpformLogo/passwordLogo.png"
 import mobileLogo from "../assets/SignUpformLogo/tempImage5qyAJv 1 (2).png"
 import gsuiteLogo from "../assets/SignUpformLogo/tempImageRnhnz3 1.png"
 import nameLogo from "../assets/SignUpformLogo/tempImageChspc3 1 (1).png"
-import {MouseEffectBackground} from "../components/MouseEffectBackground.js";
+import {MouseEffectBackground} from "../components/background/MouseEffectBackground.js";
 import AnimatedWrapper from "../components/AnimatedWrapper.js";
 
 interface FormData {

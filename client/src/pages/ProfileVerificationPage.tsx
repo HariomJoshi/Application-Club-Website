@@ -6,7 +6,7 @@ import LinkedInIcon from "../assets/images/icon/linkedin.png";
 import CodeforcesIcon from "../assets/images/icon/codeforces.png";
 import VerifyIcon from "../assets/images/icon/verify.png";
 import AnimatedWrapper from "../components/AnimatedWrapper.js";
-import {MouseEffectBackground} from "../components/MouseEffectBackground.js";
+import {MouseEffectBackground} from "../components/background/MouseEffectBackground.js";
 
 const ProfileVerificationPage: React.FC = () => {
 

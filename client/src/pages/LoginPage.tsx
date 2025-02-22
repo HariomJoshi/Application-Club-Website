@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import userIcon from "../assets/images/icons/user.png";
 import lockIcon from "../assets/images/icons/lock.png";
 import {HiEye, HiEyeOff} from "react-icons/hi";
-import {MouseEffectBackground} from "../components/MouseEffectBackground.js";
+import {MouseEffectBackground} from "../components/background/MouseEffectBackground.js";
 import AnimatedWrapper from "../components/AnimatedWrapper";
 
 const LoginPage: React.FC = () => {
