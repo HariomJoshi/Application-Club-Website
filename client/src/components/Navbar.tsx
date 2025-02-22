@@ -46,7 +46,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="sticky top-0 z-10 font-montserrat w-full bg-AC_Orange p-1">
+        <div className="sticky top-0 z-10 font-montserrat w-full bg-AC_Orange p-1 z-50">
             <div className="flex justify-between items-center">
                 <div className="p-1 bg-black rounded-md h-12 w-12 flex justify-center items-center">
                     <img src={ACLogo} alt="AC Logo" className=""/>
