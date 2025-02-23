@@ -18,7 +18,7 @@ const boxSlice = createSlice({
   reducers: {
     // will be called once to set the state of divs
     initState: (state, actions) => {
-      console.log("state initialized");
+      // console.log("state initialized");
       const rows: number = actions.payload.rows;
       const columns: number = actions.payload.columns;
       state.rows = rows;
@@ -33,7 +33,7 @@ const boxSlice = createSlice({
       //   }
       //   console.log("here");
       // }
-      console.log(rows, columns);
+      // console.log(rows, columns);
     },
 
     // Do a BFS run on hover (upto 3 levels)
@@ -122,6 +122,7 @@ const boxSlice = createSlice({
     clickBox: (state, actions) => {
       const tx: number = actions.payload.x;
       const ty: number = actions.payload.y;
+      console.log(tx, ty);
       let level: number = 0;
       const queue = new Queue<number[]>();
       queue.enqueue([tx, ty]);
